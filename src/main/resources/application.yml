@@ -6,7 +6,7 @@ spring:
     show-sql: true
   datasource:
     url: "jdbc:postgresql://mhamza-database.cpg3kjrpv9u8.ca-central-1.rds.amazonaws.com:5432/mhdb?currentSchema=project2"
-    username: postgres
-    password: project2team
+    username:
+    password:
 
 

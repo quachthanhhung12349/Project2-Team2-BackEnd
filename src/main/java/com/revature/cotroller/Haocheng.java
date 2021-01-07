@@ -21,7 +21,7 @@ import java.util.List;
 
 
 @RestController
-public class test {
+public class Haocheng {
 
     @Autowired
     private IForumService forumService;
