@@ -39,12 +39,14 @@ public class Haocheng {
 
     @RequestMapping("/getmessages")
     public ResponseEntity<List<Message>> getMessages() {
-        List<Message> messages = forumService.getMessages();
-        for (Message message : messages) {
-            System.out.println(message);
-        }
 
         return new ResponseEntity<List<Message>>(forumService.getMessages(), HttpStatus.OK);
+    }
+
+    @RequestMapping("/getmessages2")
+    public ResponseEntity<List<Message>> getMessages2() {
+
+        return new ResponseEntity<List<Message>>(forumService.getMessages2(), HttpStatus.OK);
     }
 
 }
