@@ -14,7 +14,9 @@ import com.revature.service.IForumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -27,10 +29,10 @@ public class Haocheng {
     private IForumService forumService;
 
     @RequestMapping("/getforum")
-    public ResponseEntity<Forum> getForum() {
+    public ResponseEntity<Forum> getForums(@RequestParam int forumId) {
+        System.out.println(forumId);
 
-        System.out.println(forumService.getForumById(1));
-        return new ResponseEntity<>(forumService.getForumById(1), HttpStatus.OK);
+        return new ResponseEntity<>(forumService.getForumById(forumId), HttpStatus.OK);
     }
 
     @RequestMapping("/getmessages")

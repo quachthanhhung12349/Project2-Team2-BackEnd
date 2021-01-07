@@ -42,4 +42,9 @@ public class ForumDAO extends HibernateDaoSupport implements IForumDAO {
 //        Query query = entityManager.createNativeQuery("select * from message");
 //        return query.getResultList();
     }
+
+    @Override
+    public List<Integer> getForumIds() {
+        return null;
+    }
 }
