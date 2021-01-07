@@ -10,4 +10,5 @@ public interface IForumDAO {
     Forum getForumById(int forumId);
     List<Message> getMessages();
 
+    List<Integer> getForumIds();
 }

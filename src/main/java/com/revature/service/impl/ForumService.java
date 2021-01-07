@@ -31,6 +31,11 @@ public class ForumService implements IForumService {
     }
 
     @Override
+    public List<Integer> getForumIds() {
+        return forumDAO.getForumIds();
+    }
+
+    @Override
     public List<Message> getMessages() {
         return forumDAO.getMessages();
     }
