@@ -9,6 +9,7 @@
 package com.revature.service.impl;
 
 import com.revature.dao.IForumDAO;
+import com.revature.dao.IforumDao2;
 import com.revature.pojo.Forum;
 import com.revature.pojo.Message;
 import com.revature.service.IForumService;
@@ -22,6 +23,11 @@ public class ForumService implements IForumService {
 
     @Autowired
     private IForumDAO forumDAO;
+
+    @Autowired
+    private IforumDao2 iforumDao2;
+
+
 
 
     @Override
@@ -38,6 +44,11 @@ public class ForumService implements IForumService {
     @Override
     public List<Message> getMessages() {
         return forumDAO.getMessages();
+    }
+
+    @Override
+    public List<Message> getMessages2() {
+        return iforumDao2.findAll();
     }
 }
 
