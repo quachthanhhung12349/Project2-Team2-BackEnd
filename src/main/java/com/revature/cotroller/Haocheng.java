@@ -24,7 +24,7 @@ import java.util.List;
 
 
 @RestController
-@EnableSwagger2
+
 public class Haocheng {
 
     @Autowired
