@@ -8,8 +8,8 @@
 
 package com.revature.service.impl;
 
-import com.revature.dao.IForumDAO;
-import com.revature.dao.IforumDao2;
+import com.revature.dao.IForumDao;
+import com.revature.dao.IMessageDao;
 import com.revature.pojo.Forum;
 import com.revature.pojo.Message;
 import com.revature.service.IForumService;
@@ -21,34 +21,36 @@ import java.util.List;
 @Service
 public class ForumService implements IForumService {
 
-    @Autowired
-    private IForumDAO forumDAO;
 
     @Autowired
-    private IforumDao2 iforumDao2;
+    private IForumDao forumDao;
 
-
-
-
-    @Override
-    public Forum getForumById(int forumId) {
-
-        return forumDAO.getForumById(forumId);
-    }
-
-    @Override
-    public List<Integer> getForumIds() {
-        return forumDAO.getForumIds();
-    }
+    @Autowired
+    private IMessageDao iMessageDao;
 
     @Override
     public List<Message> getMessages() {
-        return forumDAO.getMessages();
+        return iMessageDao.findAll();
     }
 
     @Override
-    public List<Message> getMessages2() {
-        return iforumDao2.findAll();
+    public Message saveMessage(Message message) {
+        return iMessageDao.save(message);
+    }
+
+    @Override
+    public List<Forum> getForums() {
+        return forumDao.findAll();
+    }
+
+    @Override
+    public Forum saveForum(Forum forum) {
+        return forumDao.save(forum);
+    }
+
+    @Override
+    public Forum getForumById(int forumId) {
+        return forumDao.findById(forumId).get();
     }
 }
 
