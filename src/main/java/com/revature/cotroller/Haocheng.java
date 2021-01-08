@@ -14,12 +14,11 @@ import com.revature.service.IForumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 
@@ -30,23 +29,37 @@ public class Haocheng {
     @Autowired
     private IForumService forumService;
 
-    @RequestMapping("/getforum")
-    public ResponseEntity<Forum> getForums(@RequestParam int forumId) {
-        System.out.println(forumId);
-
-        return new ResponseEntity<>(forumService.getForumById(forumId), HttpStatus.OK);
+    @GetMapping("/forum/{forumId}")
+    public ResponseEntity<Forum> getForumsById(@PathVariable int forumId) {
+        return new ResponseEntity<Forum>(forumService.getForumById(forumId), HttpStatus.OK);
+    }
+    @GetMapping("/forum")
+    public ResponseEntity<List<Forum>> getForums(){
+        return new ResponseEntity<List<Forum>>(forumService.getForums(),HttpStatus.OK);
+    }
+    @PostMapping("/forum")
+    public ResponseEntity<Forum> postForum(@RequestBody Forum forum){
+        return new ResponseEntity<Forum>(forumService.saveForum(forum),HttpStatus.CREATED);
     }
 
-    @RequestMapping("/getmessages")
+
+
+    @GetMapping("/message")
     public ResponseEntity<List<Message>> getMessages() {
 
         return new ResponseEntity<List<Message>>(forumService.getMessages(), HttpStatus.OK);
     }
 
-    @RequestMapping("/getmessages2")
-    public ResponseEntity<List<Message>> getMessages2() {
+    @PostMapping("/message")
+    public ResponseEntity<Message> postMessage(@RequestBody Message message){
 
-        return new ResponseEntity<List<Message>>(forumService.getMessages2(), HttpStatus.OK);
+        SimpleDateFormat sdf = new SimpleDateFormat();// format time
+        sdf.applyPattern("yyyy-MM-dd HH:mm:ss a");//
+        Date date = new Date();// get now time
+
+        message.setTimeStamp(date);
+
+        return new ResponseEntity<Message>(forumService.saveMessage(message),HttpStatus.CREATED);
     }
 
 }

@@ -6,11 +6,14 @@ import com.revature.pojo.Message;
 import java.util.List;
 
 public interface IForumService {
-    Forum getForumById(int forumId);
-
-    List<Integer> getForumIds();
 
     List<Message> getMessages();
 
-    List<Message> getMessages2();
+    Message saveMessage(Message message);
+
+    List<Forum> getForums();
+
+    Forum saveForum(Forum forum);
+
+    Forum getForumById(int forumId);
 }
