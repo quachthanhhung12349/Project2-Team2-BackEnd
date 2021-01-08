@@ -30,14 +30,17 @@ public class Haocheng {
     private IForumService forumService;
 
     @GetMapping("/forum/{forumId}")
+    @CrossOrigin
     public ResponseEntity<Forum> getForumsById(@PathVariable int forumId) {
         return new ResponseEntity<Forum>(forumService.getForumById(forumId), HttpStatus.OK);
     }
     @GetMapping("/forum")
+    @CrossOrigin
     public ResponseEntity<List<Forum>> getForums(){
         return new ResponseEntity<List<Forum>>(forumService.getForums(),HttpStatus.OK);
     }
     @PostMapping("/forum")
+    @CrossOrigin
     public ResponseEntity<Forum> postForum(@RequestBody Forum forum){
         return new ResponseEntity<Forum>(forumService.saveForum(forum),HttpStatus.CREATED);
     }
@@ -45,12 +48,21 @@ public class Haocheng {
 
 
     @GetMapping("/message")
+    @CrossOrigin
     public ResponseEntity<List<Message>> getMessages() {
 
         return new ResponseEntity<List<Message>>(forumService.getMessages(), HttpStatus.OK);
     }
 
+    @GetMapping("/message/{forumId}")
+    @CrossOrigin
+    public ResponseEntity<List<Message>> getMessagesByForumId(@PathVariable int forumId){
+
+        return new ResponseEntity<List<Message>>(forumService.getMessagesByForumId(forumId),HttpStatus.OK);
+    }
+
     @PostMapping("/message")
+    @CrossOrigin
     public ResponseEntity<Message> postMessage(@RequestBody Message message){
 
         SimpleDateFormat sdf = new SimpleDateFormat();// format time

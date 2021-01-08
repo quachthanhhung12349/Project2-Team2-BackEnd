@@ -13,7 +13,10 @@ import com.revature.dao.IMessageDao;
 import com.revature.pojo.Forum;
 import com.revature.pojo.Message;
 import com.revature.service.IForumService;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -51,6 +54,12 @@ public class ForumService implements IForumService {
     @Override
     public Forum getForumById(int forumId) {
         return forumDao.findById(forumId).get();
+    }
+
+    @Override
+    public List<Message> getMessagesByForumId(int forumId) {
+
+        return iMessageDao.getMessageByForumId(forumId);
     }
 }
 

@@ -16,4 +16,6 @@ public interface IForumService {
     Forum saveForum(Forum forum);
 
     Forum getForumById(int forumId);
+
+    List<Message> getMessagesByForumId(int forumId);
 }

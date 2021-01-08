@@ -9,6 +9,7 @@
 package com.revature.pojo;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "forum")
@@ -21,12 +22,36 @@ public class Forum {
     @Column(name = "topic")
     private String topic;
 
+    @Column(name="username")
+    private String username;
+
+    @Column(name = "timestamp")
+    private Date timeStamp;
+
     @Override
     public String toString() {
         return "Forum{" +
                 "forumId=" + forumId +
                 ", topic='" + topic + '\'' +
+                ", username='" + username + '\'' +
+                ", timeStamp=" + timeStamp +
                 '}';
+    }
+
+    public Date getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(Date timeStamp) {
+        this.timeStamp = timeStamp;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public int getForumId() {
