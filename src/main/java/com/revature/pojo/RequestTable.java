@@ -24,12 +24,24 @@ public class RequestTable {
     @Column(name = "problem")
     private String problem;
 
-    @Column(name = "timestamp")
+    @Column(name = "timecreated")
     private Date timeStamp;
 
-    @Column(name ="isresponsed" )
+    @Column(name ="isresponded" )
     private boolean isResponsed;
-
+    
+    @Column(name = "doctorresponse")
+    private String doctorResponse;
+    
+    @Column(name = "prescription")
+    private String prescription;
+    
+    @Column(name = "timeresponded")
+    private Date timeResponded;
+    
+    @Column(name ="hasappointment" )
+    private boolean hasappointment;
+    
     @ManyToOne
     @JoinColumn(name = "patientid")
     private Patient patientId;
@@ -38,65 +50,95 @@ public class RequestTable {
     @JoinColumn(name ="doctorid")
     private Doctor doctorId;
 
-    @Override
-    public String toString() {
-        return "RequestTable{" +
-                "requestId=" + requestId +
-                ", problem='" + problem + '\'' +
-                ", timeStamp=" + timeStamp +
-                ", isResponsed=" + isResponsed +
-                ", patientId=" + patientId +
-                ", doctorId=" + doctorId +
-                '}';
-    }
+	public int getRequestId() {
+		return requestId;
+	}
 
-    public int getRequestId() {
-        return requestId;
-    }
+	public void setRequestId(int requestId) {
+		this.requestId = requestId;
+	}
 
-    public void setRequestId(int requestId) {
-        this.requestId = requestId;
-    }
+	public String getProblem() {
+		return problem;
+	}
 
-    public String getProblem() {
-        return problem;
-    }
+	public void setProblem(String problem) {
+		this.problem = problem;
+	}
 
-    public void setProblem(String problem) {
-        this.problem = problem;
-    }
+	public Date getTimeStamp() {
+		return timeStamp;
+	}
 
-    public Date getTimeStamp() {
-        return timeStamp;
-    }
+	public void setTimeStamp(Date timeStamp) {
+		this.timeStamp = timeStamp;
+	}
 
-    public void setTimeStamp(Date timeStamp) {
-        this.timeStamp = timeStamp;
-    }
+	public boolean isResponsed() {
+		return isResponsed;
+	}
 
-    public boolean isResponsed() {
-        return isResponsed;
-    }
+	public void setResponsed(boolean isResponsed) {
+		this.isResponsed = isResponsed;
+	}
 
-    public void setResponsed(boolean responsed) {
-        isResponsed = responsed;
-    }
+	public String getDoctorResponse() {
+		return doctorResponse;
+	}
 
-    public Patient getPatientId() {
-        return patientId;
-    }
+	public void setDoctorResponse(String doctorResponse) {
+		this.doctorResponse = doctorResponse;
+	}
 
-    public void setPatientId(Patient patientId) {
-        this.patientId = patientId;
-    }
+	public String getPrescription() {
+		return prescription;
+	}
 
-    public Doctor getDoctorId() {
-        return doctorId;
-    }
+	public void setPrescription(String prescription) {
+		this.prescription = prescription;
+	}
 
-    public void setDoctorId(Doctor doctorId) {
-        this.doctorId = doctorId;
-    }
+	public Date getTimeResponded() {
+		return timeResponded;
+	}
+
+	public void setTimeResponded(Date timeResponded) {
+		this.timeResponded = timeResponded;
+	}
+
+	public boolean isHasappointment() {
+		return hasappointment;
+	}
+
+	public void setHasappointment(boolean hasappointment) {
+		this.hasappointment = hasappointment;
+	}
+
+	public Patient getPatientId() {
+		return patientId;
+	}
+
+	public void setPatientId(Patient patientId) {
+		this.patientId = patientId;
+	}
+
+	public Doctor getDoctorId() {
+		return doctorId;
+	}
+
+	public void setDoctorId(Doctor doctorId) {
+		this.doctorId = doctorId;
+	}
+
+	@Override
+	public String toString() {
+		return "RequestTable [requestId=" + requestId + ", problem=" + problem + ", timeStamp=" + timeStamp
+				+ ", isResponsed=" + isResponsed + ", doctorResponse=" + doctorResponse + ", prescription="
+				+ prescription + ", timeResponded=" + timeResponded + ", hasappointment=" + hasappointment
+				+ ", patientId=" + patientId + ", doctorId=" + doctorId + "]";
+	}
+    
+   
 }
 
 
