@@ -51,7 +51,7 @@ public class Patient {
     private String language;
 
     @Column(name = "healthcardnumber")
-    private String healthCardNumber;
+    private String healthcardnumber;
 
     @Column(name = "role")
     private String role;
@@ -146,12 +146,12 @@ public class Patient {
         this.language = language;
     }
 
-    public String getHealthCardNumber() {
-        return healthCardNumber;
+    public String getHealthcardnumber() {
+        return healthcardnumber;
     }
 
-    public void setHealthCardNumber(String healthCardNumber) {
-        this.healthCardNumber = healthCardNumber;
+    public void setHealthcardnumber(String healthcardnumber) {
+        this.healthcardnumber = healthcardnumber;
     }
 
     public String getRole() {
@@ -177,7 +177,7 @@ public class Patient {
                 ", email='" + email + '\'' +
                 ", address='" + address + '\'' +
                 ", language='" + language + '\'' +
-                ", healthCardNumber='" + healthCardNumber + '\'' +
+                ", healthCardNumber='" + healthcardnumber + '\'' +
                 ", role='" + role + '\'' +
                 '}';
     }

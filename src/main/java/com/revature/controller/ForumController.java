@@ -6,7 +6,7 @@
  **/
 
 
-package com.revature.cotroller;
+package com.revature.controller;
 
 import com.revature.pojo.Forum;
 import com.revature.pojo.Message;
@@ -15,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -24,7 +23,7 @@ import java.util.List;
 
 @RestController
 
-public class Haocheng {
+public class ForumController {
 
     @Autowired
     private IForumService forumService;
@@ -42,6 +41,11 @@ public class Haocheng {
     @PostMapping("/forum")
     @CrossOrigin
     public ResponseEntity<Forum> postForum(@RequestBody Forum forum){
+        SimpleDateFormat sdf = new SimpleDateFormat();// format time
+        sdf.applyPattern("yyyy-MM-dd HH:mm:ss a");//
+        Date date = new Date();// get now time
+        forum.setTimeStamp(date);
+
         return new ResponseEntity<Forum>(forumService.saveForum(forum),HttpStatus.CREATED);
     }
 
@@ -64,7 +68,7 @@ public class Haocheng {
     @PostMapping("/message")
     @CrossOrigin
     public ResponseEntity<Message> postMessage(@RequestBody Message message){
-
+        System.out.println(message);
         SimpleDateFormat sdf = new SimpleDateFormat();// format time
         sdf.applyPattern("yyyy-MM-dd HH:mm:ss a");//
         Date date = new Date();// get now time
