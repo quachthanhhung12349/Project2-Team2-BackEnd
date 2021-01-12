@@ -23,7 +23,7 @@ import java.util.List;
 
 @RestController
 
-public class Haocheng {
+public class ForumController {
 
     @Autowired
     private IForumService forumService;
