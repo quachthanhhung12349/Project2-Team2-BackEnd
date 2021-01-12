@@ -32,7 +32,7 @@ public class AuthController {
 	  @PostMapping("/registerPatient")
 	    @CrossOrigin
 	    public ResponseEntity<Patient> registerPatient(@RequestBody Patient patient){
-		  System.out.println("testing" + patient.getHealthCardNumber());
+		  System.out.println("testing" + patient.getHealthcardnumber());
 	        return new ResponseEntity<Patient>(authService.registerPatientService(patient), HttpStatus.CREATED);
 	    }
 	  

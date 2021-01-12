@@ -146,11 +146,11 @@ public class Patient {
         this.language = language;
     }
 
-    public String getHealthCardNumber() {
+    public String getHealthcardnumber() {
         return healthcardnumber;
     }
 
-    public void setHealthCardNumber(String healthcardnumber) {
+    public void setHealthcardnumber(String healthcardnumber) {
         this.healthcardnumber = healthcardnumber;
     }
 
