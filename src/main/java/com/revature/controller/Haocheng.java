@@ -41,6 +41,11 @@ public class Haocheng {
     @PostMapping("/forum")
     @CrossOrigin
     public ResponseEntity<Forum> postForum(@RequestBody Forum forum){
+        SimpleDateFormat sdf = new SimpleDateFormat();// format time
+        sdf.applyPattern("yyyy-MM-dd HH:mm:ss a");//
+        Date date = new Date();// get now time
+        forum.setTimeStamp(date);
+
         return new ResponseEntity<Forum>(forumService.saveForum(forum),HttpStatus.CREATED);
     }
 
@@ -63,7 +68,7 @@ public class Haocheng {
     @PostMapping("/message")
     @CrossOrigin
     public ResponseEntity<Message> postMessage(@RequestBody Message message){
-
+        System.out.println(message);
         SimpleDateFormat sdf = new SimpleDateFormat();// format time
         sdf.applyPattern("yyyy-MM-dd HH:mm:ss a");//
         Date date = new Date();// get now time
