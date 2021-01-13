@@ -25,7 +25,7 @@ public class RequestTable {
     private String problem;
 
     @Column(name = "timecreated")
-    private Date timeStamp;
+    private Date timeCreated;
 
     @Column(name ="isresponded" )
     private boolean isResponsed;
@@ -67,11 +67,11 @@ public class RequestTable {
 	}
 
 	public Date getTimeStamp() {
-		return timeStamp;
+		return timeCreated;
 	}
 
 	public void setTimeStamp(Date timeStamp) {
-		this.timeStamp = timeStamp;
+		this.timeCreated = timeStamp;
 	}
 
 	public boolean isResponsed() {
@@ -132,7 +132,7 @@ public class RequestTable {
 
 	@Override
 	public String toString() {
-		return "RequestTable [requestId=" + requestId + ", problem=" + problem + ", timeStamp=" + timeStamp
+		return "RequestTable [requestId=" + requestId + ", problem=" + problem + ", timeStamp=" + timeCreated
 				+ ", isResponsed=" + isResponsed + ", doctorResponse=" + doctorResponse + ", prescription="
 				+ prescription + ", timeResponded=" + timeResponded + ", hasappointment=" + hasappointment
 				+ ", patientId=" + patientId + ", doctorId=" + doctorId + "]";

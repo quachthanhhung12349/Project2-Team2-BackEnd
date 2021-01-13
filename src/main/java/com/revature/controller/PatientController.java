@@ -1,4 +1,4 @@
-package com.revature.cotroller;
+package com.revature.controller;
 
 import java.util.List;
 
