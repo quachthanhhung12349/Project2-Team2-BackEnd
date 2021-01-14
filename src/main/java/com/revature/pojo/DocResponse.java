@@ -14,21 +14,15 @@ import java.util.Date;
 
 @Entity
 @Table(name = "requesttable")
-public class RequestTable {
+public class DocResponse {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "requestid")
-    private int requestId;
+    private int requestid;
 
     @Column(name = "problem")
     private String problem;
-
-    @Column(name = "timestamp")
-    private Date timeStamp;
-
-    @Column(name ="isresponsed" )
-    private boolean isresponsed;
     
     @Column(name ="prescription" )
     private String prescription;
@@ -36,25 +30,26 @@ public class RequestTable {
     @Column(name ="doctorresponse" )
     private String doctorresponse;
 
-    @ManyToOne
-    @JoinColumn(name = "patientid")
-    private Patient patientId;
+    @Column(name = "patientid")
+    private int patientId;
 
-    @ManyToOne
-    @JoinColumn(name ="doctorid")
-    private Doctor doctorid;
+    @Column(name ="doctorid")
+    private int doctorid;
+    
+    @Column(name = "hasappointment")
+    private boolean hasappointment;
 
     @Override
     public String toString() {
         return "RequestTable{" +
-                "requestId=" + requestId +
+                "requestId=" + requestid +
                 ", problem='" + problem + '\'' +
-                ", timeStamp=" + timeStamp +
-                ", isResponsed=" + isresponsed +
+               
                 ", patientId=" + patientId +
                 ", doctorId=" + doctorid +
                 ", prescription=" + prescription +
                  ", doctorresponse=" + doctorresponse +
+                 ", hasappointment=" + hasappointment +
                 '}';
     }
 
@@ -75,11 +70,11 @@ public class RequestTable {
     }
     
     public int getRequestId() {
-        return requestId;
+        return requestid;
     }
 
     public void setRequestId(int requestId) {
-        this.requestId = requestId;
+        this.requestid = requestId;
     }
 
     public String getProblem() {
@@ -90,35 +85,28 @@ public class RequestTable {
         this.problem = problem;
     }
 
-    public Date getTimeStamp() {
-        return timeStamp;
-    }
 
-    public void setTimeStamp(Date timeStamp) {
-        this.timeStamp = timeStamp;
-    }
+    public boolean isHasappointment() {
+		return hasappointment;
+	}
 
-    public boolean isResponsed() {
-        return isresponsed;
-    }
+	public void setHasappointment(boolean hasappointment) {
+		this.hasappointment = hasappointment;
+	}
 
-    public void setResponsed(boolean responsed) {
-    	isresponsed = responsed;
-    }
-
-    public Patient getPatientId() {
+	public int getPatientId() {
         return patientId;
     }
 
-    public void setPatientId(Patient patientId) {
+    public void setPatientId(int patientId) {
         this.patientId = patientId;
     }
 
-    public Doctor getDoctorId() {
+    public int getDoctorId() {
         return doctorid;
     }
 
-    public void setDoctorId(Doctor doctorId) {
+    public void setDoctorId(int doctorId) {
         this.doctorid = doctorId;
     }
 }
