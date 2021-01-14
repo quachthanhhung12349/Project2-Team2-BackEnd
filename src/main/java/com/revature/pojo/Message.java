@@ -28,6 +28,9 @@ public class Message {
     @Column(name = "doctype")
     private String docType;
 
+    @Column(name = "fromusername")
+    private String fromusername;
+
     @ManyToOne
     @JoinColumn(name = "forumid")
     private Forum forumId;
@@ -96,6 +99,14 @@ public class Message {
         this.doctorId = doctorId;
     }
 
+    public String getFromusername() {
+        return fromusername;
+    }
+
+    public void setFromusername(String fromusername) {
+        this.fromusername = fromusername;
+    }
+
     @Override
     public String toString() {
         return "Message{" +
@@ -103,6 +114,7 @@ public class Message {
                 ", message='" + message + '\'' +
                 ", timeStamp=" + timeStamp +
                 ", docType='" + docType + '\'' +
+                ", fromusername='" + fromusername + '\'' +
                 ", forumId=" + forumId +
                 ", patientId=" + patientId +
                 ", doctorId=" + doctorId +

@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.revature.dao.IAuthAdminDao;
 import com.revature.dao.IAuthDoctorDao;
 import com.revature.dao.IAuthPatientDao;
+import com.revature.pojo.Admin;
 import com.revature.pojo.Doctor;
 import com.revature.pojo.Patient;
 import com.revature.pojo.User;
@@ -20,6 +22,9 @@ public class AuthService implements IAuthService{
 	
 	@Autowired
 	private IAuthPatientDao authPatientDao;
+	
+	@Autowired
+	private IAuthAdminDao authAdminDao;
 
 	@Override
 	public Doctor registerDoctorService(Doctor doctor) {
@@ -53,6 +58,23 @@ public class AuthService implements IAuthService{
 	@Override
 	public List<Doctor> getDoctors() {
 		return authDoctorDao.findAll();
+	}
+
+	@Override
+	public Admin loginAdminService(User user) {
+		String username = user.getUsername();
+		String password = user.getPassword();
+		return authAdminDao.findAdminbyUsername(username, password);
+	}
+
+	@Override
+	public Admin registerAdminService(Admin admin) {
+		return authAdminDao.save(admin);
+	}
+
+	@Override
+	public int updateDoctorService(int doctorId, String status) {
+		return authDoctorDao.updateDoctorbyStatus(doctorId, status);
 	}
 	
 	
