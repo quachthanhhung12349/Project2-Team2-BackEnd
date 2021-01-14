@@ -53,6 +53,13 @@ public class DoctorController {
 		
 	}
 	
+	@GetMapping("/resolvedRequest/{doctorId}")
+	@CrossOrigin
+	public ResponseEntity<List<RequestTable>> getResolvedRequestsById(@PathVariable int doctorId){
+		System.out.println("called doctor servlet - getResolvedRequestsById");
+		return new ResponseEntity<List<RequestTable>>(ids.getRequestByStatus(doctorId, true), HttpStatus.OK);
+		
+	}
 	
 	 @PostMapping("/doctor")
      @CrossOrigin
