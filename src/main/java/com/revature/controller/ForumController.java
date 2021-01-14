@@ -45,6 +45,7 @@ public class ForumController {
         sdf.applyPattern("yyyy-MM-dd HH:mm:ss a");//
         Date date = new Date();// get now time
         forum.setTimeStamp(date);
+        System.out.println(forum);
 
         return new ResponseEntity<Forum>(forumService.saveForum(forum),HttpStatus.CREATED);
     }
