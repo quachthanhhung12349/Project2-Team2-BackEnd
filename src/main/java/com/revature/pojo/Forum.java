@@ -22,6 +22,9 @@ public class Forum {
     @Column(name = "topic")
     private String topic;
 
+    @Column(name = "role")
+    private String role;
+
     @Column(name="username")
     private String username;
 
@@ -33,9 +36,18 @@ public class Forum {
         return "Forum{" +
                 "forumId=" + forumId +
                 ", topic='" + topic + '\'' +
+                ", role='" + role + '\'' +
                 ", username='" + username + '\'' +
                 ", timeStamp=" + timeStamp +
                 '}';
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public Date getTimeStamp() {

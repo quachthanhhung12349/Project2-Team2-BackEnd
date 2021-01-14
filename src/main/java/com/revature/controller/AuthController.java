@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.pojo.Admin;
 import com.revature.pojo.Doctor;
-import com.revature.pojo.Forum;
 import com.revature.pojo.Patient;
 import com.revature.pojo.User;
 import com.revature.service.IAuthService;
@@ -25,6 +26,9 @@ public class AuthController {
 	
 	 @Autowired
 	 private IAuthService authService;
+	 
+	 @Autowired
+	 private JavaMailSender javaMailSender;
 	
 	
 	  @PostMapping("/registerDoctor")
@@ -75,9 +79,16 @@ public class AuthController {
 		  return new ResponseEntity<Admin>(authService.registerAdminService(admin), HttpStatus.CREATED);
 	    }
 	  
-	  @PostMapping("/doctors/{doctorId}/{status}")
+	  @PostMapping("/doctors/{doctorId}/{status}/{email}")
 	  @CrossOrigin
-	    public ResponseEntity<Integer> updateDoctor(@PathVariable int doctorId, @PathVariable String status) {
+	    public ResponseEntity<Integer> updateDoctor(@PathVariable int doctorId, @PathVariable String status, @PathVariable String email) {
+	        SimpleMailMessage msg = new SimpleMailMessage();
+	        msg.setTo(email);
+
+	        msg.setSubject("Revature Medical clinic Account Update");
+	        msg.setText("Your account is "+ status + " by ADMIN");
+
+	        javaMailSender.send(msg);
 	        return new ResponseEntity<Integer>(authService.updateDoctorService(doctorId, status), HttpStatus.OK);
 	    }
 	  

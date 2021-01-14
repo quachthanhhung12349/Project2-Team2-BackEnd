@@ -73,7 +73,7 @@ public class AuthService implements IAuthService{
 	}
 
 	@Override
-	public Doctor updateDoctorService(int doctorId, String status) {
+	public int updateDoctorService(int doctorId, String status) {
 		return authDoctorDao.updateDoctorbyStatus(doctorId, status);
 	}
 	
