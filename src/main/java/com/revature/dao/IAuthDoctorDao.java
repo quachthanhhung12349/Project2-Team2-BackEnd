@@ -1,5 +1,7 @@
 package com.revature.dao;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -10,4 +12,7 @@ public interface IAuthDoctorDao extends JpaRepository<Doctor, Integer>{
 	
 	@Query(value = "select d from Doctor d where d.username=?1 and d.password=?2")
 	Doctor findDoctorbyUsername(String username, String password);
+
+	@Query(value = "select d from Doctor d where d.status = 'Approved'")
+	List<Doctor> getAllDoctors();
 }
