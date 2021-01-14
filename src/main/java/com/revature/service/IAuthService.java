@@ -2,6 +2,7 @@ package com.revature.service;
 
 import java.util.List;
 
+import com.revature.pojo.Admin;
 import com.revature.pojo.Doctor;
 import com.revature.pojo.Patient;
 import com.revature.pojo.User;
@@ -19,6 +20,13 @@ public interface IAuthService {
 	List<Patient> getPatients();
 
 	List<Doctor> getDoctors();
+
+	Admin loginAdminService(User user);
+
+	Admin registerAdminService(Admin admin);
+
+	
+	int updateDoctorService(int doctorId, String status);
 	
 
 }
