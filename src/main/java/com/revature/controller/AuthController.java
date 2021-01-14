@@ -7,16 +7,20 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revature.pojo.Admin;
 import com.revature.pojo.Doctor;
+import com.revature.pojo.Forum;
 import com.revature.pojo.Patient;
 import com.revature.pojo.User;
 import com.revature.service.IAuthService;
 
 @RestController
+@CrossOrigin
 public class AuthController {
 	
 	 @Autowired
@@ -32,7 +36,6 @@ public class AuthController {
 	  @PostMapping("/registerPatient")
 	    @CrossOrigin
 	    public ResponseEntity<Patient> registerPatient(@RequestBody Patient patient){
-		  System.out.println("testing" + patient.getHealthcardnumber());
 	        return new ResponseEntity<Patient>(authService.registerPatientService(patient), HttpStatus.CREATED);
 	    }
 	  
@@ -59,5 +62,25 @@ public class AuthController {
 	    public ResponseEntity<List<Doctor>> getDoctors(){
 	        return new ResponseEntity<List<Doctor>>(authService.getDoctors(),HttpStatus.OK);
 	  	}
+	  
+	  @PostMapping("/loginAdmin")
+	  @CrossOrigin
+	  public ResponseEntity<Admin> loginAdmin(@RequestBody User user) {
+		  return new ResponseEntity<Admin>(authService.loginAdminService(user), HttpStatus.OK);
+	  }
+	  
+	  @PostMapping("/registerAdmin")
+	    @CrossOrigin
+	    public ResponseEntity<Admin> registerAdmin(@RequestBody Admin admin){
+		  return new ResponseEntity<Admin>(authService.registerAdminService(admin), HttpStatus.CREATED);
+	    }
+	  
+	  @PostMapping("/doctors/{doctorId}/{status}")
+	  @CrossOrigin
+	    public ResponseEntity<Integer> updateDoctor(@PathVariable int doctorId, @PathVariable String status) {
+	        return new ResponseEntity<Integer>(authService.updateDoctorService(doctorId, status), HttpStatus.OK);
+	    }
+	  
+	  
 
 }
