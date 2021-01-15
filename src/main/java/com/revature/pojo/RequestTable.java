@@ -35,6 +35,9 @@ public class RequestTable {
     
     @Column(name ="doctorresponse" )
     private String doctorresponse;
+    
+    @Column(name ="hasappointment" )
+    private boolean hasappointment;
 
     @ManyToOne
     @JoinColumn(name = "patientid")
@@ -44,83 +47,87 @@ public class RequestTable {
     @JoinColumn(name ="doctorid")
     private Doctor doctorid;
 
-    @Override
-    public String toString() {
-        return "RequestTable{" +
-                "requestId=" + requestId +
-                ", problem='" + problem + '\'' +
-                ", timeStamp=" + timeStamp +
-                ", isResponsed=" + isresponsed +
-                ", patientId=" + patientId +
-                ", doctorId=" + doctorid +
-                ", prescription=" + prescription +
-                 ", doctorresponse=" + doctorresponse +
-                '}';
-    }
+	public int getRequestId() {
+		return requestId;
+	}
 
-    public String getDoctorresponse() {
-        return doctorresponse;
-    }
+	public void setRequestId(int requestId) {
+		this.requestId = requestId;
+	}
 
-    public void setDoctorresponse(String doctorresponse) {
-        this.doctorresponse = doctorresponse;
-    }
-    
-    public String getPrescription() {
-        return prescription;
-    }
+	public String getProblem() {
+		return problem;
+	}
 
-    public void setPrescription(String prescription) {
-        this.prescription = prescription;
-    }
-    
-    public int getRequestId() {
-        return requestId;
-    }
+	public void setProblem(String problem) {
+		this.problem = problem;
+	}
 
-    public void setRequestId(int requestId) {
-        this.requestId = requestId;
-    }
+	public Date getTimeStamp() {
+		return timeStamp;
+	}
 
-    public String getProblem() {
-        return problem;
-    }
+	public void setTimeStamp(Date timeStamp) {
+		this.timeStamp = timeStamp;
+	}
 
-    public void setProblem(String problem) {
-        this.problem = problem;
-    }
+	public boolean isIsresponsed() {
+		return isresponsed;
+	}
 
-    public Date getTimeStamp() {
-        return timeStamp;
-    }
+	public void setIsresponsed(boolean isresponsed) {
+		this.isresponsed = isresponsed;
+	}
 
-    public void setTimeStamp(Date timeStamp) {
-        this.timeStamp = timeStamp;
-    }
+	public String getPrescription() {
+		return prescription;
+	}
 
-    public boolean isResponsed() {
-        return isresponsed;
-    }
+	public void setPrescription(String prescription) {
+		this.prescription = prescription;
+	}
 
-    public void setResponsed(boolean responsed) {
-    	isresponsed = responsed;
-    }
+	public String getDoctorresponse() {
+		return doctorresponse;
+	}
 
-    public Patient getPatientId() {
-        return patientId;
-    }
+	public void setDoctorresponse(String doctorresponse) {
+		this.doctorresponse = doctorresponse;
+	}
 
-    public void setPatientId(Patient patientId) {
-        this.patientId = patientId;
-    }
+	public boolean isHasappointment() {
+		return hasappointment;
+	}
 
-    public Doctor getDoctorId() {
-        return doctorid;
-    }
+	public void setHasappointment(boolean hasappointment) {
+		this.hasappointment = hasappointment;
+	}
 
-    public void setDoctorId(Doctor doctorId) {
-        this.doctorid = doctorId;
-    }
+	public Patient getPatientId() {
+		return patientId;
+	}
+
+	public void setPatientId(Patient patientId) {
+		this.patientId = patientId;
+	}
+
+	public Doctor getDoctorid() {
+		return doctorid;
+	}
+
+	public void setDoctorid(Doctor doctorid) {
+		this.doctorid = doctorid;
+	}
+
+	@Override
+	public String toString() {
+		return "RequestTable [requestId=" + requestId + ", problem=" + problem + ", timeStamp=" + timeStamp
+				+ ", isresponsed=" + isresponsed + ", prescription=" + prescription + ", doctorresponse="
+				+ doctorresponse + ", hasappointment=" + hasappointment + ", patientId=" + patientId + ", doctorid="
+				+ doctorid + "]";
+	}
+
+
 }
 
 
