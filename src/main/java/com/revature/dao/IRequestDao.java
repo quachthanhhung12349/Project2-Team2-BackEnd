@@ -18,7 +18,7 @@ public interface IRequestDao extends JpaRepository<RequestTable, Integer>{
 	@Query(value = "select r from RequestTable r left join Doctor d on r.doctorid = d.doctorId  where d.doctorId = ?1")
 	public List<RequestTable> getRequestsByDoctorId(int doctorId);															
 	
-	@Query(value = "select r from RequestTable r left join Doctor d on r.doctorid = d.doctorId  where d.doctorId = ?1 and r.isresponsed = ?2")
+	@Query(value = "select r from RequestTable r left join Doctor d on r.doctorid = d.doctorId  where d.doctorId = ?1 and r.isresponsed = ?2 order by timecreated asc")
 	public List<RequestTable> getRequestByStatus(int doctorId, boolean response);
 
 
