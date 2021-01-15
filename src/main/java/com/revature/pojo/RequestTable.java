@@ -30,6 +30,9 @@ public class RequestTable {
     @Column(name ="isresponsed" )
     private boolean isresponsed;
     
+    @Column(name = "hasappointment")
+    private boolean hasappointment;
+    
     @Column(name ="prescription" )
     private String prescription;
     
@@ -55,6 +58,7 @@ public class RequestTable {
                 ", doctorId=" + doctorid +
                 ", prescription=" + prescription +
                  ", doctorresponse=" + doctorresponse +
+                 ", hasappointment=" + hasappointment +
                 '}';
     }
 
@@ -121,6 +125,14 @@ public class RequestTable {
     public void setDoctorId(Doctor doctorId) {
         this.doctorid = doctorId;
     }
+    
+    public boolean isHasappointment() {
+		return hasappointment;
+	}
+
+	public void setHasappointment(boolean hasappointment) {
+		this.hasappointment = hasappointment;
+	}
 }
 
 
