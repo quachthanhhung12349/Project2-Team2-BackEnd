@@ -8,9 +8,12 @@
 
 package com.revature.pojo;
 
-import javax.naming.Name;
-import javax.persistence.*;
-import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "requesttable")
@@ -44,7 +47,6 @@ public class DocResponse {
         return "RequestTable{" +
                 "requestId=" + requestid +
                 ", problem='" + problem + '\'' +
-               
                 ", patientId=" + patientId +
                 ", doctorId=" + doctorid +
                 ", prescription=" + prescription +
