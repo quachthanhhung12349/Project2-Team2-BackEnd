@@ -12,7 +12,7 @@ import com.revature.pojo.RequestTable;
 
 public interface IRequestDao extends JpaRepository<RequestTable, Integer>{
 	
-	@Query(value = "select r from RequestTable r left join Patient p on r.patientId = p.patientId  where p.patientId = ?1")
+	@Query(value = "select r from RequestTable r left join Patient p on r.patientId = p.patientId  where p.patientId = ?1 order by requestid desc")
 	public List<RequestTable> getRequestsByPatientId(int patient_id);
 	
 	@Query(value = "select r from RequestTable r left join Doctor d on r.doctorid = d.doctorId  where d.doctorId = ?1")
