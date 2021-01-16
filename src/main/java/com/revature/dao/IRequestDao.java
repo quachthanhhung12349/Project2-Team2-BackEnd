@@ -25,8 +25,8 @@ public interface IRequestDao extends JpaRepository<RequestTable, Integer>{
 
 	@Transactional
 	@Modifying
-	@Query("update RequestTable set  prescription=?1, doctorresponse=?2, hasappointment=?3, timecreated=?4, timeresponded=?5, "
-			+ "timestamp=?6, isresponded=?7, isresponsed=?8 where requestid = ?9")
+	@Query("update RequestTable set  prescription=?1, doctorresponse=?2, hasappointment=?3, timeresponded=?4, "
+			+  "isresponded=?5, isresponsed=?6 where requestid = ?7")
 	public void save(String prescription, String docResponse, boolean appointment, 
 			Date timeResponded, boolean isresponse, boolean responded, int reqid);
 	

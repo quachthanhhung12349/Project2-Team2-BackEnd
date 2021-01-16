@@ -52,7 +52,7 @@ public class PatientService implements IPatientService{
 		rt.setTimeStamp(today);
 		rt.setResponsed(false);
 		rt.setPatientId(p);
-		
+		rt.setHasappointment(false);
 		
 		return irdao.save(rt);
 	}
