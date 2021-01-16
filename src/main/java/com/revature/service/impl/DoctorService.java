@@ -43,11 +43,11 @@ public class DoctorService implements IDoctorService{
 	public void postDoctorResponse(DocResponse docResp) {
 		int reqId = docResp.getRequestId();
 		boolean appointment = docResp.isHasappointment();
-		LocalDateTime today = LocalDateTime.now();
+		java.util.Date date=new java.util.Date();  
 		String docResponse = docResp.getDoctorresponse();
 		String prescription = docResp.getPrescription();
 		
-		irdao.save(prescription, docResponse, appointment, today, today, today, true, true, reqId);
+		irdao.save(prescription, docResponse, appointment, date, true, true, reqId);
 	}
 
 

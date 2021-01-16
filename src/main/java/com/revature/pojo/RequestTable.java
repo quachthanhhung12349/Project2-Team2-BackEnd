@@ -26,9 +26,15 @@ public class RequestTable {
 
     @Column(name = "timestamp")
     private Date timeStamp;
+    
+    @Column(name = "timeresponded")
+    private Date timeresponded;
 
     @Column(name ="isresponsed" )
     private boolean isresponsed;
+    
+    @Column(name = "hasappointment")
+    private boolean hasappointment;
     
     @Column(name ="prescription" )
     private String prescription;
@@ -55,6 +61,8 @@ public class RequestTable {
                 ", doctorId=" + doctorid +
                 ", prescription=" + prescription +
                  ", doctorresponse=" + doctorresponse +
+                 ", hasappointment=" + hasappointment +
+                 ", timeresponded=" + timeresponded +
                 '}';
     }
 
@@ -102,7 +110,15 @@ public class RequestTable {
         return isresponsed;
     }
 
-    public void setResponsed(boolean responsed) {
+    public Date getTimeresponded() {
+		return timeresponded;
+	}
+
+	public void setTimeresponded(Date timeresponded) {
+		this.timeresponded = timeresponded;
+	}
+
+	public void setResponsed(boolean responsed) {
     	isresponsed = responsed;
     }
 
@@ -121,6 +137,14 @@ public class RequestTable {
     public void setDoctorId(Doctor doctorId) {
         this.doctorid = doctorId;
     }
+    
+    public boolean isHasappointment() {
+		return hasappointment;
+	}
+
+	public void setHasappointment(boolean hasappointment) {
+		this.hasappointment = hasappointment;
+	}
 }
 
 

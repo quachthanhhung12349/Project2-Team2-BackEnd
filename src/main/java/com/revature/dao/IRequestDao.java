@@ -2,6 +2,7 @@ package com.revature.dao;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Date;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -18,7 +19,7 @@ public interface IRequestDao extends JpaRepository<RequestTable, Integer>{
 	@Query(value = "select r from RequestTable r left join Doctor d on r.doctorid = d.doctorId  where d.doctorId = ?1")
 	public List<RequestTable> getRequestsByDoctorId(int doctorId);															
 	
-	@Query(value = "select r from RequestTable r left join Doctor d on r.doctorid = d.doctorId  where d.doctorId = ?1 and r.isresponsed = ?2")
+	@Query(value = "select r from RequestTable r left join Doctor d on r.doctorid = d.doctorId  where d.doctorId = ?1 and r.isresponsed = ?2 order by timecreated asc")
 	public List<RequestTable> getRequestByStatus(int doctorId, boolean response);
 
 
@@ -26,7 +27,7 @@ public interface IRequestDao extends JpaRepository<RequestTable, Integer>{
 	@Modifying
 	@Query("update RequestTable set  prescription=?1, doctorresponse=?2, hasappointment=?3, timecreated=?4, timeresponded=?5, "
 			+ "timestamp=?6, isresponded=?7, isresponsed=?8 where requestid = ?9")
-	public void save(String prescription, String docResponse, boolean appointment, LocalDateTime timeCreated,
-			LocalDateTime timeResponded, LocalDateTime timestamp, boolean isresponse, boolean responded, int reqid);
+	public void save(String prescription, String docResponse, boolean appointment, 
+			Date timeResponded, boolean isresponse, boolean responded, int reqid);
 	
 }
