@@ -9,13 +9,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revature.pojo.Request;
 import com.revature.pojo.RequestTable;
 import com.revature.service.IPatientService;
 
 @RestController
-
 public class PatientController {
 
 	
@@ -30,8 +32,16 @@ public class PatientController {
 	@GetMapping("/patient/{patientId}")
 	@CrossOrigin
 	public ResponseEntity<List<RequestTable>> getPatientRequestsById(@PathVariable int patientId){
-		System.out.println("called patient servlet");
+		
 		return new ResponseEntity<List<RequestTable>>(ips.getRequestsByPatientId(patientId), HttpStatus.OK);
+		
+	}
+	
+	@PostMapping("/patient/req")
+	@CrossOrigin
+	public void postPatientRequests(@RequestBody Request req){
+		
+		ips.savePatientRequest(req);
 		
 	}
 	

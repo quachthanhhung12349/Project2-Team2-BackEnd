@@ -57,7 +57,8 @@ public class AuthService implements IAuthService{
 
 	@Override
 	public List<Doctor> getDoctors() {
-		return authDoctorDao.findAll();
+		
+		return authDoctorDao.getAllDoctors();
 	}
 
 	@Override
