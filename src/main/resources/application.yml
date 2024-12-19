@@ -23,3 +23,6 @@ spring:
         auth: true
         starttls.enable: true
         ssl.trust: smtp.gmail.com
+server:
+  port: ${PORT:8080}
+
