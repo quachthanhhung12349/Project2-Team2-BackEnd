@@ -1,82 +1,77 @@
-# REVATURE MEDICAL CLINIC
+# Giới thiệu ứng dụng
 
-Revature medical clinic helps in maintaining social distance during COVID-19 and allow you to communicate with approved medical doctors for advices and get prescription. It also permit patients to register and create requests with a specific doctor and view history of their requests.Doctors can view requests under their name and respond to a patient by prescribing a medication or letting them know to visit doctor in person. All the users can communicate with each other using forum pages.
+Ứng dụng giúp bệnh nhân đăng ký khám bệnh với các bác sĩ.
 
-## Technologies Used
-
-### Front End
-- React JS: version ^17.0.1
-- Material UI: version ^4.11.2
-- TypeScript: version ^^4.1.3
-- node-sass: version ^4.14.1
-- AJAX - axios: version ^0.21.1
+## Front End
+- React JS ^17.0.1
+- Material UI ^4.11.2
+- TypeScript ^^4.1.3
+- node-sass ^4.14.1
+- AJAX - axios ^0.21.1
 - Git
 - Visual Studio Code
 
-### Back End
-- Java: version 1.8
-- Spring Boot: version ^2.4.1
-- Hibernate: version 5.1.3.Final
-- Swagger: version ^2.9.2
+## Back End
+- Java 17
+- Spring Boot ^2.4.1
+- Hibernate 5.1.3.Final
+- Swagger ^2.9.2
 - SQL / PostgreSQL: version 42.2.18
-- Maven: version 1.8
-- Tomcat: version 9.0
-- Eclipse: Spring Tool Suit 4
+- Maven 1.8
+- Tomcat 9.0
 
-### Deployment
-- AWS EC2
-- AWS RDS
-- Docker
+## Triển khai
+- Vercel
 
-## Features
+## Tính năng
 
-### Admin: 
-1. Login to existing account.
-2. View list of all doctor accounts - Requested / Approved / Rejected .
-3. View information about doctors.
-4. Can Approve or Reject a doctor's account. 
-5. Logout
+### Admin:
+1. Đăng nhập vào tài khoản đã có.
+2. Xem danh sách tất cả tài khoản bác sĩ - Đang yêu cầu / Đã duyệt / Đã từ chối.
+3. Xem thông tin chi tiết về bác sĩ.
+4. Duyệt hoặc từ chối tài khoản bác sĩ.
+5. Đăng xuất.
 
-### Patient
-1. Register for a new account.
-2. Login to existing account. 
-3. Create a request with a specific approved doctor for advice or perscription by describing problem.
-4. View list of all past requests - Responded / Pending.
-5. Can create a new Topic in forum page.
-6. Can reply to other Forum topics.
-5. Logout
+### Bệnh nhân:
+1. Đăng ký tài khoản mới.
+2. Đăng nhập vào tài khoản đã có.
+3. Tạo yêu cầu với bác sĩ đã được duyệt để xin lời khuyên hoặc kê đơn thuốc bằng cách mô tả vấn đề.
+4. Xem danh sách tất cả yêu cầu trước đó - Đã trả lời / Đang chờ.
+5. Tạo một chủ đề mới trong trang diễn đàn.
+6. Có thể trả lời các chủ đề trong diễn đàn của người khác.
+7. Đăng xuất.
 
-### Doctor
-1. Register for a new account.
-2. Login only if the account is approved by admin. 
-3. View list of all new requests by patients.
-4. View list of previous requests that has been responed.
-5. Respond to patient's requests either by providing advice and perscription or asking to visit in person.
-5. Can create a new Topic in forum page.
-6. Can reply to other Forum topics.
-5. Logout
+### Bác sĩ:
+1. Đăng ký tài khoản mới.
+2. Đăng nhập chỉ khi tài khoản đã được admin duyệt.
+3. Xem danh sách các yêu cầu mới từ bệnh nhân.
+4. Xem danh sách các yêu cầu đã trả lời trước đó.
+5. Trả lời yêu cầu của bệnh nhân bằng cách cung cấp lời khuyên, kê đơn thuốc hoặc yêu cầu bệnh nhân đến khám trực tiếp.
+6. Có thể tạo một chủ đề mới trong trang diễn đàn.
+7. Có thể trả lời các chủ đề trong diễn đàn của người khác.
+8. Đăng xuất.
 
-## Getting Started
+## Hướng dẫn bắt đầu
 
-### Back End 
--> Git clone https://github.com/2011Canada/Project2-Team2-BackEnd.git
--> Open Spring Tool Suit 4 - Eclipse or IntelliJ\
--> import back end project\
--> run the application as Spring Boot App
+### Back End
+- Git clone dự án này
+- Dùng IntelliJ để chạy dự án
+- Chạy cơ sở dữ liệu PostgreSQL theo đường dẫn ở trên
+- Chạy ứng dụng Spring Boot
 
-### Front End 
--> Git clone https://github.com/2011Canada/Project2-Team2-FrontEndNew.git
--> change directory to frontend and do -> npm install\
--> run code using command -> npm start\
+### Front End
+- Git clone dự án này
+- Chuyển đường dẫn thành frontend và thực hiện `npm install`
+- Chạy ứng dụng bằng `npm start`
 
-## Usage
-- User can login as an Admin, Patient or Doctor.
-- Admin is responsible for managing all doctor's accounts.
-- Admin can Approve or Reject any new doctor's account request.
-- Patients can create requests to specific doctors asking for an advice or perscription 
-- Doctors can response to patient request.
-- Both patients and doctors can view the list of all request either new or already responded.
-- User can Logout
+## Cách sử dụng
+- Người dùng có thể đăng nhập với tư cách là Admin, Bệnh nhân hoặc Bác sĩ.
+- Admin chịu trách nhiệm quản lý tất cả tài khoản bác sĩ.
+- Admin có thể duyệt hoặc từ chối yêu cầu tài khoản bác sĩ mới.
+- Bệnh nhân có thể tạo yêu cầu cho bác sĩ cụ thể để xin lời khuyên hoặc kê đơn thuốc.
+- Bác sĩ có thể trả lời yêu cầu của bệnh nhân.
+- Cả bệnh nhân và bác sĩ đều có thể xem danh sách các yêu cầu, bao gồm các yêu cầu mới và đã được trả lời.
+- Người dùng có thể đăng xuất.
 
 ### Authentication FLow
 ![Alt](/login.png "login")
@@ -96,15 +91,9 @@ Revature medical clinic helps in maintaining social distance during COVID-19 and
 ## ER Diagram
 ![Alt](/ERD.png "ERD")
 
-## Contributers
-- [Haocheng Xu](https://github.com/haochengca)
-- [Antardeep Kaur](https://github.com/Antardeep)
-- [Mahesh Kalle](https://github.com/mahesh-kalle)
-- [Mohammad Hamza](https://github.com/lionhamza82)
+## Giấy phép
+Dự án này thuộc giấy phép GNU General Public License.
 
-## License
-
-The project is under the GNU General Public License
 
 
 
