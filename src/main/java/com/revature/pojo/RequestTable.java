@@ -25,7 +25,7 @@ public class RequestTable {
     private String problem;
 
     @Column(name = "timecreated")
-    private Date timeStamp;
+    private Date timeCreated;
     
     @Column(name = "timeresponded")
     private Date timeresponded;
@@ -55,7 +55,7 @@ public class RequestTable {
         return "RequestTable{" +
                 "requestId=" + requestId +
                 ", problem='" + problem + '\'' +
-                ", timeStamp=" + timeStamp +
+                ", timeCreated=" + timeCreated +
                 ", isResponsed=" + isresponsed +
                 ", patientId=" + patientId +
                 ", doctorId=" + doctorid +
@@ -98,12 +98,12 @@ public class RequestTable {
         this.problem = problem;
     }
 
-    public Date getTimeStamp() {
-        return timeStamp;
+    public Date gettimeCreated() {
+        return timeCreated;
     }
 
-    public void setTimeStamp(Date timeStamp) {
-        this.timeStamp = timeStamp;
+    public void settimeCreated(Date timeCreated) {
+        this.timeCreated = timeCreated;
     }
 
     public boolean isResponsed() {
