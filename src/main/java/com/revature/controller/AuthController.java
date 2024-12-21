@@ -2,7 +2,10 @@ package com.revature.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.SimpleMailMessage;
@@ -23,6 +26,14 @@ import com.revature.service.IAuthService;
 @RestController
 @CrossOrigin
 public class AuthController {
+
+	private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
+
+	@Value("${spring.mail.username}")
+	String username;
+
+	@Value("${spring.mail.password}")
+	String password;
 	
 	 @Autowired
 	 private IAuthService authService;
@@ -82,12 +93,13 @@ public class AuthController {
 	  @PostMapping("/doctors/{doctorId}/{status}/{email}")
 	  @CrossOrigin
 	    public ResponseEntity<Integer> updateDoctor(@PathVariable int doctorId, @PathVariable String status, @PathVariable String email) {
+		  	logger.info(username + " " + password + doctorId + " " + status + " " + email);
 	        SimpleMailMessage msg = new SimpleMailMessage();
 	        msg.setTo(email);
-
+		  logger.info("Update doctor status");
 	        msg.setSubject("Revature Medical clinic Account Update");
 	        msg.setText("Your account is "+ status + " by ADMIN");
-
+		  logger.info("Update doctor status");
 	        javaMailSender.send(msg);
 	        return new ResponseEntity<Integer>(authService.updateDoctorService(doctorId, status), HttpStatus.OK);
 	    }
