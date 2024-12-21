@@ -22,7 +22,7 @@ public class Message {
     @Column(name = "message")
     private String message;
 
-    @Column(name = "timestamp")
+    @Column(name = "timecreated")
     private Date timeStamp;
 
     @Column(name = "doctype")

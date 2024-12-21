@@ -24,7 +24,7 @@ public class RequestTable {
     @Column(name = "problem")
     private String problem;
 
-    @Column(name = "timestamp")
+    @Column(name = "timecreated")
     private Date timeStamp;
     
     @Column(name = "timeresponded")
