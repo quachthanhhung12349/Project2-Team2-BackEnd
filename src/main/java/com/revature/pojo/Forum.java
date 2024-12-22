@@ -28,7 +28,7 @@ public class Forum {
     @Column(name="username")
     private String username;
 
-    @Column(name = "timecreated")
+    @Column(name = "timestamp")
     private Date timeStamp;
 
     @Override

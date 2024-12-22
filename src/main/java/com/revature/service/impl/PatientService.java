@@ -49,7 +49,7 @@ public class PatientService implements IPatientService{
 		rt.setProblem(req.getProblem());
 		LocalDateTime ld = LocalDateTime.now();
 		Timestamp today = Timestamp.valueOf(ld);
-		rt.setTimeStamp(today);
+		rt.settimeCreated(today);
 		rt.setResponsed(false);
 		rt.setPatientId(p);
 		rt.setHasappointment(false);

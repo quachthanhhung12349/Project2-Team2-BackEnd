@@ -26,7 +26,7 @@ public class ResponseTable {
     @Column(name = "detail")
     private String detail;
 
-    @Column(name = "timecreated")
+    @Column(name = "timestamp")
     private Date timeStamp;
 
     @Column(name = "hasappointment")

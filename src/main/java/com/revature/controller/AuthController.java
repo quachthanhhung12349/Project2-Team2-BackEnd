@@ -23,6 +23,8 @@ import com.revature.pojo.Patient;
 import com.revature.pojo.User;
 import com.revature.service.IAuthService;
 
+import static com.revature.StaticFunctions.isValidEmail;
+
 @RestController
 @CrossOrigin
 public class AuthController {
@@ -93,14 +95,15 @@ public class AuthController {
 	  @PostMapping("/doctors/{doctorId}/{status}/{email}")
 	  @CrossOrigin
 	    public ResponseEntity<Integer> updateDoctor(@PathVariable int doctorId, @PathVariable String status, @PathVariable String email) {
+
 		  	logger.info(username + " " + password + doctorId + " " + status + " " + email);
 	        SimpleMailMessage msg = new SimpleMailMessage();
-	        msg.setTo(email);
-		  logger.info("Update doctor status");
-	        msg.setSubject("Revature Medical clinic Account Update");
-	        msg.setText("Your account is "+ status + " by ADMIN");
-		  logger.info("Update doctor status");
-	        javaMailSender.send(msg);
+			if (isValidEmail(email)) {
+				msg.setTo(email);
+				msg.setSubject("Revature Medical clinic Account Update");
+				msg.setText("Your account is "+ status + " by ADMIN");
+				javaMailSender.send(msg);
+			}
 	        return new ResponseEntity<Integer>(authService.updateDoctorService(doctorId, status), HttpStatus.OK);
 	    }
 	  
